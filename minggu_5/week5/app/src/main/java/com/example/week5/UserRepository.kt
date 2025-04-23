@@ -1,35 +1,29 @@
 package com.example.week5
 
-import com.example.week5.Customer
-import com.example.week5.Retailer
-import com.example.week5.User
-import com.example.week5.UserRole
-
 class UserRepository private constructor() {
     private val users = mutableListOf<User>()
 
     init {
         // Add some sample users for testing
-        users.add(Customer("customer@example.com", "password", "Test Customer"))
-        users.add(Retailer("retailer@example.com", "password", "Test Store"))
+        // Ensure retailer has initial balance if needed for withdraw testing
+        users.add(Customer("customer@example.com", "password", "Test Customer", 150000.0))
+        users.add(Customer("febrian@example.com", "password", "Febrian", 50000.0))
+        users.add(Customer("timothy@example.com", "password", "Timothy", 200000.0))
+        users.add(Retailer("retailer@example.com", "password", "ISTTS Store", 50000.0)) // Add initial balance
+        users.add(Retailer("another@example.com", "password", "Toko Lain", 10000.0)) // Add initial balance
     }
-
-    fun updateBalance(email: String, newBalance: Double): Boolean {
-        val user = findUserByEmail(email)
-        return if (user != null) {
-            user.balance = newBalance
-            true // Indicate success
-        } else {
-            false // Indicate user not found
-        }
-    }
-
 
     fun getUsers(): List<User> = users
 
     fun findUserByEmail(email: String): User? {
         return users.find { it.email == email }
     }
+
+    // --- ADDED METHOD ---
+    fun getUserNameByEmail(email: String): String? {
+        return findUserByEmail(email)?.name
+    }
+    // --- END ADDED METHOD ---
 
     fun isEmailTaken(email: String): Boolean {
         return users.any { it.email == email }
@@ -42,22 +36,29 @@ class UserRepository private constructor() {
     }
 
     fun registerUser(user: User): Boolean {
-        // Check if email is already taken
         if (isEmailTaken(user.email)) {
             return false
         }
-
-        // Check if store name is taken (for retailers)
         if (user is Retailer && isStoreNameTaken(user.name)) {
             return false
         }
-
         users.add(user)
         return true
     }
 
     fun validateCredentials(email: String, password: String): User? {
         return users.find { it.email == email && it.password == password }
+    }
+
+    // Method to update user balance (used by both Customer Topup and Retailer Withdraw)
+    fun updateBalance(email: String, newBalance: Double): Boolean {
+        val user = findUserByEmail(email)
+        return if (user != null) {
+            user.balance = newBalance
+            true
+        } else {
+            false
+        }
     }
 
     companion object {

@@ -12,12 +12,18 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+
         <action
             android:id="@+id/action_loginFragment_to_customerProductsFragment"
             app:destination="@id/customerProductsFragment"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
+
         <action
             android:id="@+id/action_loginFragment_to_retailerProductsFragment"
             app:destination="@id/retailerProductsFragment"
@@ -30,94 +36,211 @@
         android:name="com.example.week5.RegisterFragment"
         android:label="Register"
         tools:layout="@layout/fragment_register">
+
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
-        <!-- Remove automatic navigation from register to home screens -->
-        <!-- Let user login after successful registration -->
     </fragment>
 
-    <!-- Customer Section -->
     <fragment
         android:id="@+id/customerProductsFragment"
         android:name="com.example.week5.CustomerProductsFragment"
         android:label="Products"
         tools:layout="@layout/fragment_customer_products">
-        <action
-            android:id="@+id/action_customerProductsFragment_to_productDetailFragment"
-            app:destination="@id/productDetailFragment" />
-        <action
-            android:id="@+id/action_customerProductsFragment_to_customerHistoryFragment"
-            app:destination="@id/customerHistoryFragment"
-            app:popUpTo="@id/customerProductsFragment"
-            app:popUpToInclusive="true"/> <!-- Pop back stack for bottom nav -->
-        <action
-            android:id="@+id/action_customerProductsFragment_to_customerTopupFragment"
-            app:destination="@id/customerTopupFragment"
-            app:popUpTo="@id/customerProductsFragment"
-            app:popUpToInclusive="true"/> <!-- Pop back stack for bottom nav -->
-    </fragment>
 
-    <fragment
-        android:id="@+id/productDetailFragment"
-        android:name="com.example.week5.ProductDetailFragment"
-        android:label="Product Detail"
-        tools:layout="@layout/fragment_product_detail">
-        <argument
-            android:name="productId"
-            app:argType="string" />
-    </fragment>
+    <action
+        android:id="@+id/action_customerProductsFragment_to_productDetailFragment"
+        app:destination="@id/productDetailFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
 
-    <fragment
-        android:id="@+id/customerHistoryFragment"
-        android:name="com.example.week5.CustomerHistoryFragment"
-        android:label="History"
-        tools:layout="@layout/fragment_customer_history">
-        <action
-            android:id="@+id/action_customerHistoryFragment_to_customerProductsFragment"
-            app:destination="@id/customerProductsFragment"
-            app:popUpTo="@id/customerHistoryFragment"
-            app:popUpToInclusive="true"/>
-        <action
-            android:id="@+id/action_customerHistoryFragment_to_customerTopupFragment"
-            app:destination="@id/customerTopupFragment"
-            app:popUpTo="@id/customerHistoryFragment"
-            app:popUpToInclusive="true"/>
-    </fragment>
+    <action
+        android:id="@+id/action_customerProductsFragment_to_customerHistoryFragment"
+        app:destination="@id/customerHistoryFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/customerProductsFragment"/>
 
-    <fragment
-        android:id="@+id/customerTopupFragment"
-        android:name="com.example.week5.CustomerTopupFragment"
-        android:label="Top Up"
-        tools:layout="@layout/fragment_customer_topup">
-        <action
-            android:id="@+id/action_customerTopupFragment_to_customerProductsFragment"
-            app:destination="@id/customerProductsFragment"
-            app:popUpTo="@id/customerTopupFragment"
-            app:popUpToInclusive="true"/>
-        <action
-            android:id="@+id/action_customerTopupFragment_to_customerHistoryFragment"
-            app:destination="@id/customerHistoryFragment"
-            app:popUpTo="@id/customerTopupFragment"
-            app:popUpToInclusive="true"/>
-    </fragment>
+    <action
+        android:id="@+id/action_customerProductsFragment_to_customerTopupFragment"
+        app:destination="@id/customerTopupFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/customerProductsFragment"/>
+</fragment>
 
-    <!-- Retailer Section -->
-    <fragment
-        android:id="@+id/retailerProductsFragment"
-        android:name="com.example.week5.RetailerProductsFragment"
-        android:label="Retailer Home"
-        tools:layout="@layout/fragment_retailer_products" >
-        <!-- Add retailer actions later -->
-    </fragment>
+<fragment
+    android:id="@+id/productDetailFragment"
+    android:name="com.example.week5.ProductDetailFragment"
+    android:label="Product Detail"
+    tools:layout="@layout/fragment_product_detail">
 
+    <argument
+    android:name="productId"
+    app:argType="string" />
 
-    <!-- Global Logout Action -->
-    <action android:id="@+id/action_global_logout_to_loginFragment"
-        app:destination="@id/loginFragment"
-        app:popUpTo="@id/nav_graph"
+</fragment>
+
+<fragment
+    android:id="@+id/customerHistoryFragment"
+    android:name="com.example.week5.CustomerHistoryFragment"
+    android:label="History"
+    tools:layout="@layout/fragment_customer_history">
+
+    <action
+        android:id="@+id/action_customerHistoryFragment_to_customerProductsFragment"
+        app:destination="@id/customerProductsFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/customerHistoryFragment"
         app:popUpToInclusive="true"/>
+    <action
+        android:id="@+id/action_customerHistoryFragment_to_customerTopupFragment"
+        app:destination="@id/customerTopupFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/customerHistoryFragment"/>
+    </fragment>
 
-</navigation>
+<fragment
+    android:id="@+id/customerTopupFragment"
+    android:name="com.example.week5.CustomerTopupFragment"
+    android:label="Top Up"
+    tools:layout="@layout/fragment_customer_topup">
+
+    <action
+    android:id="@+id/action_customerTopupFragment_to_customerProductsFragment"
+    app:destination="@id/customerProductsFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim"
+    app:popUpTo="@id/customerTopupFragment"
+    app:popUpToInclusive="true"/>
+
+    <action
+        android:id="@+id/action_customerTopupFragment_to_customerHistoryFragment"
+        app:destination="@id/customerHistoryFragment"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim"
+        app:popUpTo="@id/customerTopupFragment"/>
+</fragment>
+<fragment
+    android:id="@+id/retailerProductsFragment"
+    android:name="com.example.week5.RetailerProductsFragment"
+    android:label="Your Products"
+    tools:layout="@layout/fragment_retailer_products">
+
+    <action
+    android:id="@+id/action_retailerProductsFragment_to_addEditProductFragment"
+    app:destination="@id/addEditProductFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <!-- Action for BottomNav: To History -->
+    <action
+    android:id="@+id/action_retailerProductsFragment_to_retailerHistoryFragment"
+    app:destination="@id/retailerHistoryFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim"
+    app:popUpTo="@id/retailerProductsFragment" /> <!-- Keep Products in back stack -->
+        <!-- Action for BottomNav: To Withdraw -->
+    <action
+    android:id="@+id/action_retailerProductsFragment_to_withdrawFragment"
+    app:destination="@id/withdrawFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim"
+    app:popUpTo="@id/retailerProductsFragment" /> <!-- Keep Products in back stack -->
+</fragment>
+
+<fragment
+    android:id="@+id/addEditProductFragment"
+    android:name="com.example.week5.AddEditProductFragment"
+    android:label="Add/Edit Product"
+    tools:layout="@layout/fragment_add_edit_product">
+
+<argument
+android:name="productId"
+app:argType="string"
+app:nullable="true"
+android:defaultValue="@null" />
+    <!-- Navigation back uses findNavController().navigateUp() -->
+    </fragment>
+
+<fragment
+    android:id="@+id/retailerHistoryFragment"
+    android:name="com.example.week5.RetailerHistoryFragment"
+    android:label="Sales History"
+    tools:layout="@layout/fragment_retailer_history">
+
+<action
+    android:id="@+id/action_retailerHistoryFragment_to_retailerProductsFragment"
+    app:destination="@id/retailerProductsFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim"
+    app:popUpTo="@id/retailerHistoryFragment"
+    app:popUpToInclusive="true" />
+
+<action
+    android:id="@+id/action_retailerHistoryFragment_to_withdrawFragment"
+    app:destination="@id/withdrawFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim"
+    app:popUpTo="@id/retailerHistoryFragment" />
+</fragment>
+
+<fragment
+    android:id="@+id/withdrawFragment"
+    android:name="com.example.week5.WithdrawFragment"
+    android:label="Withdraw Funds"
+    tools:layout="@layout/fragment_withdraw">
+
+    <action
+    android:id="@+id/action_withdrawFragment_to_retailerProductsFragment"
+    app:destination="@id/retailerProductsFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim"
+    app:popUpTo="@id/withdrawFragment"
+    app:popUpToInclusive="true" />
+
+    <action
+    android:id="@+id/action_withdrawFragment_to_retailerHistoryFragment"
+    app:destination="@id/retailerHistoryFragment"
+    app:enterAnim="@anim/nav_default_enter_anim"
+    app:exitAnim="@anim/nav_default_exit_anim"
+    app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+    app:popExitAnim="@anim/nav_default_pop_exit_anim"
+    app:popUpTo="@id/withdrawFragment" /> <!-- Keep Withdraw in back stack -->
+</fragment>
+
+<action android:id="@+id/action_global_logout_to_loginFragment"
+app:destination="@id/loginFragment"
+app:popUpTo="@id/nav_graph"
+    app:popUpToInclusive="true"/>
+
+    </navigation>

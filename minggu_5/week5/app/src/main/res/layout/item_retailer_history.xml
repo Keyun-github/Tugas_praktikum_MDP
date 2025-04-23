@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="4dp"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tvRetailerHistoryProductName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvRetailerHistoryCustomerName"
+            android:layout_marginEnd="8dp"
+            tools:text="Sold Product Name" />
+
+        <TextView
+            android:id="@+id/tvRetailerHistoryCustomerLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:text="Cust: "
+            app:layout_constraintEnd_toStartOf="@id/tvRetailerHistoryCustomerName"
+            app:layout_constraintTop_toTopOf="@id/tvRetailerHistoryProductName"
+            app:layout_constraintBottom_toBottomOf="@id/tvRetailerHistoryProductName"
+            />
+
+
+        <TextView
+            android:id="@+id/tvRetailerHistoryCustomerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/tvRetailerHistoryCustomerLabel"
+            app:layout_constraintBottom_toBottomOf="@id/tvRetailerHistoryCustomerLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Customer Name" />
+
+        <TextView
+            android:id="@+id/tvRetailerHistoryQuantityLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:text="Qty: "
+            app:layout_constraintTop_toBottomOf="@id/tvRetailerHistoryProductName"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvRetailerHistoryQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/tvRetailerHistoryQuantityLabel"
+            app:layout_constraintTop_toTopOf="@id/tvRetailerHistoryQuantityLabel"
+            app:layout_constraintBottom_toBottomOf="@id/tvRetailerHistoryQuantityLabel"
+            tools:text="2" />
+
+        <TextView
+            android:id="@+id/tvRetailerHistoryTotalLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:text="Total: "
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/tvRetailerHistoryQuantityLabel"
+            app:layout_constraintEnd_toStartOf="@+id/tvRetailerHistoryTotalPrice"
+            android:layout_marginEnd="4dp"/>
+
+        <TextView
+            android:id="@+id/tvRetailerHistoryTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvRetailerHistoryTotalLabel"
+            app:layout_constraintBottom_toBottomOf="@id/tvRetailerHistoryTotalLabel"
+            tools:text="Rp 300.000" />
+
+        <TextView
+            android:id="@+id/tvRetailerHistoryTimestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            app:layout_constraintTop_toBottomOf="@id/tvRetailerHistoryQuantityLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="17 Apr 2025, 11:30" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

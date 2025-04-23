@@ -1,6 +1,8 @@
 package com.example.week5
 
-// Simple in-memory storage for products
+// Add specific import if needed, e.g. for Log
+// import android.util.Log
+
 class ProductRepository private constructor() {
 
     private val products = mutableListOf<Product>()
@@ -15,27 +17,36 @@ class ProductRepository private constructor() {
     }
 
     fun getAllProducts(): List<Product> {
-        return products.toList() // Return a copy
+        return products.toList() // Return a copy for customers
     }
+
+    // --- RETAILER METHODS ---
+    fun getProductsByRetailer(email: String): List<Product> {
+        return products.filter { it.retailerEmail == email }.toList()
+    }
+
+    fun addProduct(product: Product): Boolean {
+        // Optional: Add check if product with same name from same retailer exists?
+        products.add(product)
+        // Log.d("ProductRepository", "Product added: ${product.name} by ${product.retailerEmail}")
+        return true // Assuming success for now
+    }
+
+    fun updateProduct(updatedProduct: Product): Boolean {
+        val index = products.indexOfFirst { it.id == updatedProduct.id && it.retailerEmail == updatedProduct.retailerEmail } // Ensure retailer owns it
+        return if (index != -1) {
+            products[index] = updatedProduct
+            // Log.d("ProductRepository", "Product updated: ${updatedProduct.name}")
+            true
+        } else {
+            // Log.d("ProductRepository", "Product update failed: ID ${updatedProduct.id} not found or ownership mismatch.")
+            false
+        }
+    }
+    // --- END RETAILER METHODS ---
 
     fun findProductById(id: String): Product? {
         return products.find { it.id == id }
-    }
-
-    // Function for Retailer to add products (needed later)
-    fun addProduct(product: Product) {
-        products.add(product)
-    }
-
-    // Function for Retailer to update products (needed later)
-    fun updateProduct(updatedProduct: Product): Boolean {
-        val index = products.indexOfFirst { it.id == updatedProduct.id }
-        return if (index != -1) {
-            products[index] = updatedProduct
-            true
-        } else {
-            false
-        }
     }
 
     // Function for Customer purchase
@@ -49,7 +60,7 @@ class ProductRepository private constructor() {
         }
     }
 
-    // Search function (LIKE simulation)
+    // Search function for Customer (all products)
     fun searchProducts(query: String): List<Product> {
         if (query.isBlank()) {
             return getAllProducts()
@@ -60,6 +71,20 @@ class ProductRepository private constructor() {
                     it.retailerName.contains(query, ignoreCase = true)
         }
     }
+
+    // Search function for Retailer (own products)
+    fun searchOwnProducts(retailerEmail: String, query: String): List<Product> {
+        val ownProducts = getProductsByRetailer(retailerEmail)
+        if (query.isBlank()) {
+            return ownProducts
+        }
+        return ownProducts.filter {
+            it.name.contains(query, ignoreCase = true) ||
+                    it.description.contains(query, ignoreCase = true)
+            // No need to search retailer name here
+        }
+    }
+
 
     companion object {
         @Volatile
