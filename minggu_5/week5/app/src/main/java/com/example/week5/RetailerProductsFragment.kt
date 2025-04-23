@@ -1,4 +1,4 @@
-package com.example.week5.fragments
+package com.example.week5
 
 import android.os.Bundle
 import android.view.LayoutInflater

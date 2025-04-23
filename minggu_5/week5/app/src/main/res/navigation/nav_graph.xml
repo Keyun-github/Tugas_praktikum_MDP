@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.week5.fragments.LoginFragment"
+        android:name="com.example.week5.LoginFragment"
         android:label="Login"
         tools:layout="@layout/fragment_login">
         <action
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.week5.fragments.RegisterFragment"
+        android:name="com.example.week5.RegisterFragment"
         android:label="Register"
         tools:layout="@layout/fragment_register">
         <action
@@ -35,28 +35,89 @@
             app:destination="@id/loginFragment"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
+        <!-- Remove automatic navigation from register to home screens -->
+        <!-- Let user login after successful registration -->
+    </fragment>
+
+    <!-- Customer Section -->
+    <fragment
+        android:id="@+id/customerProductsFragment"
+        android:name="com.example.week5.CustomerProductsFragment"
+        android:label="Products"
+        tools:layout="@layout/fragment_customer_products">
         <action
-            android:id="@+id/action_registerFragment_to_customerProductsFragment"
-            app:destination="@id/customerProductsFragment"
-            app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_customerProductsFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment" />
         <action
-            android:id="@+id/action_registerFragment_to_retailerProductsFragment"
-            app:destination="@id/retailerProductsFragment"
-            app:popUpTo="@id/loginFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_customerProductsFragment_to_customerHistoryFragment"
+            app:destination="@id/customerHistoryFragment"
+            app:popUpTo="@id/customerProductsFragment"
+            app:popUpToInclusive="true"/> <!-- Pop back stack for bottom nav -->
+        <action
+            android:id="@+id/action_customerProductsFragment_to_customerTopupFragment"
+            app:destination="@id/customerTopupFragment"
+            app:popUpTo="@id/customerProductsFragment"
+            app:popUpToInclusive="true"/> <!-- Pop back stack for bottom nav -->
     </fragment>
 
     <fragment
-        android:id="@+id/customerProductsFragment"
-        android:name="com.example.week5.fragments.CustomerProductsFragment"
-        android:label="Customer Home"
-        tools:layout="@layout/fragment_customer_products" />
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.week5.ProductDetailFragment"
+        android:label="Product Detail"
+        tools:layout="@layout/fragment_product_detail">
+        <argument
+            android:name="productId"
+            app:argType="string" />
+    </fragment>
 
     <fragment
+        android:id="@+id/customerHistoryFragment"
+        android:name="com.example.week5.CustomerHistoryFragment"
+        android:label="History"
+        tools:layout="@layout/fragment_customer_history">
+        <action
+            android:id="@+id/action_customerHistoryFragment_to_customerProductsFragment"
+            app:destination="@id/customerProductsFragment"
+            app:popUpTo="@id/customerHistoryFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_customerHistoryFragment_to_customerTopupFragment"
+            app:destination="@id/customerTopupFragment"
+            app:popUpTo="@id/customerHistoryFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/customerTopupFragment"
+        android:name="com.example.week5.CustomerTopupFragment"
+        android:label="Top Up"
+        tools:layout="@layout/fragment_customer_topup">
+        <action
+            android:id="@+id/action_customerTopupFragment_to_customerProductsFragment"
+            app:destination="@id/customerProductsFragment"
+            app:popUpTo="@id/customerTopupFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_customerTopupFragment_to_customerHistoryFragment"
+            app:destination="@id/customerHistoryFragment"
+            app:popUpTo="@id/customerTopupFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <!-- Retailer Section -->
+    <fragment
         android:id="@+id/retailerProductsFragment"
-        android:name="com.example.week5.fragments.RetailerProductsFragment"
+        android:name="com.example.week5.RetailerProductsFragment"
         android:label="Retailer Home"
-        tools:layout="@layout/fragment_retailer_products" />
+        tools:layout="@layout/fragment_retailer_products" >
+        <!-- Add retailer actions later -->
+    </fragment>
+
+
+    <!-- Global Logout Action -->
+    <action android:id="@+id/action_global_logout_to_loginFragment"
+        app:destination="@id/loginFragment"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true"/>
 
 </navigation>

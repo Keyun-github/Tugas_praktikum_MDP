@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="4dp"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tvHistoryProductName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvHistoryRetailerName"
+            android:layout_marginEnd="8dp"
+            tools:text="Barang 1" />
+
+        <TextView
+            android:id="@+id/tvHistoryRetailerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/tvHistoryProductName"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="ISTTS Store" />
+
+        <TextView
+            android:id="@+id/tvHistoryQuantityLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:text="Qty: "
+            app:layout_constraintTop_toBottomOf="@id/tvHistoryProductName"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvHistoryQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/tvHistoryQuantityLabel"
+            app:layout_constraintTop_toTopOf="@id/tvHistoryQuantityLabel"
+            app:layout_constraintBottom_toBottomOf="@id/tvHistoryQuantityLabel"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/tvHistoryTotalLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:text="Total: "
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/tvHistoryQuantityLabel"
+            app:layout_constraintEnd_toStartOf="@+id/tvHistoryTotalPrice"
+            android:layout_marginEnd="4dp"/>
+
+        <TextView
+            android:id="@+id/tvHistoryTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvHistoryTotalLabel"
+            app:layout_constraintBottom_toBottomOf="@id/tvHistoryTotalLabel"
+            tools:text="Rp 50.000" />
+
+        <TextView
+            android:id="@+id/tvHistoryTimestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            app:layout_constraintTop_toBottomOf="@id/tvHistoryQuantityLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="17 Apr 2025, 10:00" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

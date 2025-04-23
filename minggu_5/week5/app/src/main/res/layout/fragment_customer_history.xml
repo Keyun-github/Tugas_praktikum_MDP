@@ -4,72 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CustomerProductsFragment">
+    tools:context=".CustomerHistoryFragment">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+        android:id="@+id/appBarLayoutHistory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbarHistory"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="My Oya"
+            app:title="My History"
             app:titleTextColor="@android:color/white"
             android:background="?attr/colorPrimary" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <EditText
-        android:id="@+id/etSearch"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Search Products..."
-        android:inputType="text"
-        android:imeOptions="actionSearch"
-        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvProducts"
+        android:id="@+id/rvHistory"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@id/etSearch"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayoutHistory"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/item_product" />
+        tools:listitem="@layout/item_history" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBarHistory"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="@+id/rvProducts"
-        app:layout_constraintBottom_toBottomOf="@+id/rvProducts"
+        app:layout_constraintTop_toTopOf="@+id/rvHistory"
+        app:layout_constraintBottom_toBottomOf="@+id/rvHistory"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:visibility="visible"/>
 
     <TextView
-        android:id="@+id/tvNoProducts"
+        android:id="@+id/tvNoHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No products found."
+        android:text="Your purchase history is empty."
         android:visibility="gone"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-        app:layout_constraintTop_toTopOf="@+id/rvProducts"
-        app:layout_constraintBottom_toBottomOf="@+id/rvProducts"
+        app:layout_constraintTop_toTopOf="@+id/rvHistory"
+        app:layout_constraintBottom_toBottomOf="@+id/rvHistory"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

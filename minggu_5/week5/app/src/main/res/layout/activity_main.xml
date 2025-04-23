@@ -12,11 +12,30 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_customer"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
+
+    <!-- Bottom Navigation for Customer/Retailer -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_customer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_customer_menu"
+        app:labelVisibilityMode="labeled"
+        android:background="?android:attr/windowBackground"
+        tools:visibility="visible"/> <!-- Add tools:visibility for preview -->
+
+    <!-- You might need another one for Retailer later -->
+    <!-- <com.google.android.material.bottomnavigation.BottomNavigationView
+       android:id="@+id/bottom_navigation_retailer"
+       ... similar setup with retailer menu ... /> -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.week5.models
+package com.example.week5
 
 // Base User class
 open class User(

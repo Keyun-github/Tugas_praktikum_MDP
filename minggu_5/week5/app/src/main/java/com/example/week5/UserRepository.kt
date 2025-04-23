@@ -1,9 +1,9 @@
-package com.example.week5.repository
+package com.example.week5
 
-import com.example.week5.models.Customer
-import com.example.week5.models.Retailer
-import com.example.week5.models.User
-import com.example.week5.models.UserRole
+import com.example.week5.Customer
+import com.example.week5.Retailer
+import com.example.week5.User
+import com.example.week5.UserRole
 
 class UserRepository private constructor() {
     private val users = mutableListOf<User>()
@@ -13,6 +13,17 @@ class UserRepository private constructor() {
         users.add(Customer("customer@example.com", "password", "Test Customer"))
         users.add(Retailer("retailer@example.com", "password", "Test Store"))
     }
+
+    fun updateBalance(email: String, newBalance: Double): Boolean {
+        val user = findUserByEmail(email)
+        return if (user != null) {
+            user.balance = newBalance
+            true // Indicate success
+        } else {
+            false // Indicate user not found
+        }
+    }
+
 
     fun getUsers(): List<User> = users
 

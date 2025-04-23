@@ -1,13 +1,13 @@
-package com.example.week5.viewmodels
+package com.example.week5
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.week5.models.Customer
-import com.example.week5.models.Retailer
-import com.example.week5.models.User
-import com.example.week5.models.UserRole
-import com.example.week5.repository.UserRepository
+import com.example.week5.Customer
+import com.example.week5.Retailer
+import com.example.week5.User
+import com.example.week5.UserRole
+import com.example.week5.UserRepository
 
 class LoginViewModel : ViewModel() {
     private val repository = UserRepository.getInstance()

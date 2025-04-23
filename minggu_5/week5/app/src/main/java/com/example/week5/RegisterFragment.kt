@@ -1,4 +1,4 @@
-package com.example.week5.fragments
+package com.example.week5
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,9 +15,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.week5.R
-import com.example.week5.models.User
-import com.example.week5.models.UserRole
-import com.example.week5.viewmodels.RegisterViewModel
+import com.example.week5.User
+import com.example.week5.UserRole
+import com.example.week5.RegisterViewModel
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
