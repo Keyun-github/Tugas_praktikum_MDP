@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        tools:context=".AddGameFragment">
+
+        <TextView
+            android:id="@+id/textViewAddGameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Game"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textFieldGameName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAddGameTitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextGameName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textFieldGameDescription"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textFieldGameName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextGameDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:minLines="3" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textViewGenreLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Genre (select at least one):"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textFieldGameDescription" />
+
+
+        <GridLayout
+            android:id="@+id/gridLayoutGenres"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="4"
+            android:useDefaultMargins="true"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/textViewGenreLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <CheckBox android:id="@+id/checkBoxAction" android:text="Action" />
+            <CheckBox android:id="@+id/checkBoxCoop" android:text="Co-op" />
+            <CheckBox android:id="@+id/checkBoxCompetitive" android:text="Competitive"/>
+            <CheckBox android:id="@+id/checkBoxFPS" android:text="FPS"/>
+            <CheckBox android:id="@+id/checkBoxMultiplayer" android:text="Multiplayer"/>
+            <CheckBox android:id="@+id/checkBoxOpenWorld" android:text="Open World"/>
+            <CheckBox android:id="@+id/checkBoxRPG" android:text="RPG"/>
+            <CheckBox android:id="@+id/checkBoxShooter" android:text="Shooter"/>
+            <!-- Tambah genre lain jika perlu -->
+
+        </GridLayout>
+
+        <TextView
+            android:id="@+id/textViewGenreError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please select at least one genre"
+            android:textColor="@android:color/holo_red_dark"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridLayoutGenres" />
+
+
+        <CheckBox
+            android:id="@+id/checkBoxIsFree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Is free?"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewGenreError" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textFieldGamePrice"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Price (Rp)"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxIsFree">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextGamePrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:text="0" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/buttonAddGame"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Add Game"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textFieldGamePrice" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

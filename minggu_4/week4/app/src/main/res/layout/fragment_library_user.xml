@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LibraryUserFragment"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewLibraryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Library"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/editTextSearchLibrary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Search library..."
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSearchLibrary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLibraryTitle"
+        android:layout_marginEnd="8dp"/>
+
+    <Button
+        android:id="@+id/buttonSearchLibrary"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="Search"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextSearchLibrary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextSearchLibrary" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewLibrary"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSearchLibrary"
+        tools:listitem="@layout/item_game_user" />
+
+    <TextView
+        android:id="@+id/textViewEmptyLibrary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your library is empty"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSearchLibrary" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

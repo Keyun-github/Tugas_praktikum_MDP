@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#E3F2FD">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gudangku"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ubah Barang"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center" />
+
+    <EditText
+        android:id="@+id/etNamaBarang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama Barang"
+        android:inputType="text"
+        android:layout_marginTop="10dp"
+        android:background="@android:drawable/editbox_background" />
+
+    <EditText
+        android:id="@+id/etJumlahStok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Jumlah Stok"
+        android:inputType="number"
+        android:layout_marginTop="10dp"
+        android:background="@android:drawable/editbox_background" />
+
+    <EditText
+        android:id="@+id/etDeskripsiBarang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Deskripsi Barang"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="10dp"
+        android:background="@android:drawable/editbox_background" />
+
+    <Button
+        android:id="@+id/btnUbahBarang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ubah Barang"
+        android:backgroundTint="#64B5F6"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/btnKembali"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kembali"
+        android:backgroundTint="#E53935"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="10dp" />
+
+</LinearLayout>
