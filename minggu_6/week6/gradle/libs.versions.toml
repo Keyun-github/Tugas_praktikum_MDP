@@ -12,13 +12,16 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.10.1" # activity-ktx biasanya ada di sini, jika tidak, activity saja sudah cukup
 constraintlayout = "2.2.1"
+navigation = "2.7.7"
 
 # --- Versi Tambahan ---
 fragmentKtx = "1.6.2"  # Versi untuk Fragment KTX
 lifecycle = "2.7.0"   # Versi untuk Lifecycle (ViewModel, LiveData)
 room = "2.6.1"        # Versi untuk Room
-coroutines = "1.7.3"  # Versi untuk Kotlin Coroutines (sesuaikan jika perlu)
-
+coroutines = "1.7.3"
+navigationFragmentKtx = "2.8.9"
+navigationUiKtx = "2.8.9"  # Versi untuk Kotlin Coroutines (sesuaikan jika perlu)
+coreSplashscreen = "1.0.1"
 
 [libraries]
 # Library yang sudah ada
@@ -40,12 +43,17 @@ androidx-room-runtime = { group = "androidx.room", name = "room-runtime", versio
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" } # Untuk Kapt
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+androidx-navigation-safe-args-gradle-plugin = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "navigation" }
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "coreSplashscreen"}
 
 
 [plugins]
 # Plugin yang sudah ada
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+navigation-safeargs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigation" }
 # Tidak perlu menambahkan kotlin-kapt di sini jika Anda menggunakan id("kotlin-kapt") di build.gradle.kts
 
 

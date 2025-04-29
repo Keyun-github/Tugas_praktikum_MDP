@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/textViewItemCommunity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="r/programming"/>
+
+        <TextView
+            android:id="@+id/textViewItemPostInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/textViewItemCommunity"
+            app:layout_constraintTop_toTopOf="@id/textViewItemCommunity"
+            app:layout_constraintBottom_toBottomOf="@id/textViewItemCommunity"
+            tools:text="• Posted by Alex_777 • 17:05 20/04/2025"/>
+
+        <TextView
+            android:id="@+id/textViewItemTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/textViewItemCommunity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="How to code?"/>
+
+        <TextView
+            android:id="@+id/textViewItemDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:maxLines="3"
+            android:ellipsize="end"
+            app:layout_constraintTop_toBottomOf="@id/textViewItemTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="I want to learn how to code, but i don't know where to learn. Do you have any suggestion? This text might be longer to test ellipsis."/>
+
+
+        <!-- Vote and Comment Section -->
+        <LinearLayout
+            android:id="@+id/layoutItemVotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewItemDescription">
+
+            <ImageView
+                android:id="@+id/imageViewItemUpvote"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_arrow_upward"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="2dp"
+                app:tint="@color/icon_tint_normal" />
+
+            <TextView
+                android:id="@+id/textViewItemUpvotes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="10dp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="1"/>
+
+            <ImageView
+                android:id="@+id/imageViewItemDownvote"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_arrow_downward"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="2dp"
+                app:tint="@color/icon_tint_normal" />
+
+            <TextView
+                android:id="@+id/textViewItemDownvotes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="0"/>
+
+            <ImageView
+                android:id="@+id/imageViewItemCommentIcon"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/ic_comment"
+                app:tint="@color/icon_tint_normal"/>
+
+            <TextView
+                android:id="@+id/textViewItemCommentsCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="12sp"
+                tools:text="6"/>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

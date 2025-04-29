@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment"> <!-- Aplikasi dimulai dari LoginFragment -->
+
+    <!-- Login Fragment -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.week6.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <!-- Action dari Login ke Home (setelah sukses) -->
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+        app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <!-- Register Fragment -->
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.week6.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <!-- Action kembali ke Login (setelah sukses atau via BottomNav) -->
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+        app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Home Fragment (Layar utama setelah login) -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.week6.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <!-- Action dari Home ke Detail Post -->
+        <action
+            android:id="@+id/action_homeFragment_to_detailPostFragment"
+            app:destination="@id/detailPostFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <!-- Action dari Home ke Add Post -->
+        <action
+            android:id="@+id/action_homeFragment_to_addPostFragment"
+            app:destination="@id/addPostFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+
+    <!-- Detail Post Fragment -->
+    <fragment
+        android:id="@+id/detailPostFragment"
+        android:name="com.example.week6.DetailPostFragment"
+        android:label="fragment_detail_post"
+        tools:layout="@layout/fragment_detail_post" >
+        <!-- Menerima argumen postId -->
+        <argument
+            android:name="postId"
+            app:argType="integer" />
+        <!-- Tidak ada action keluar spesifik, akan kembali ke Home via tombol back -->
+    </fragment>
+
+    <!-- Add Post Fragment -->
+    <fragment
+        android:id="@+id/addPostFragment"
+        android:name="com.example.week6.AddPostFragment"
+        android:label="fragment_add_post"
+        tools:layout="@layout/fragment_add_post" >
+        <!-- Action dari Add Post ke Add Community -->
+        <action
+            android:id="@+id/action_addPostFragment_to_addCommunityFragment"
+            app:destination="@id/addCommunityFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <!-- Kembali ke Home setelah post berhasil (dilakukan via popBackStack() di kode) -->
+    </fragment>
+
+    <!-- Add Community Fragment -->
+    <fragment
+        android:id="@+id/addCommunityFragment"
+        android:name="com.example.week6.AddCommunityFragment"
+        android:label="fragment_add_community"
+        tools:layout="@layout/fragment_add_community" />
+    <!-- Kembali ke AddPost setelah community dibuat (dilakukan via popBackStack() di kode) -->
+
+
+    <!-- Action Global untuk kembali ke Login (misalnya setelah Logout) -->
+    <action android:id="@+id/action_global_loginFragment"
+        app:destination="@id/loginFragment"
+        app:popUpTo="@id/nav_graph"
+    app:popUpToInclusive="true"/>
+
+</navigation>

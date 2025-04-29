@@ -6,4 +6,7 @@
     <color name="grey_background">#F5F5F5</color>
     <color name="icon_tint_selected">#FF5722</color>
     <color name="icon_tint_normal">#757575</color>
+    <color name="purple_500">#FF6200EE</color> <!-- CONTOH WARNA UNGU -->
+    <color name="teal_200">#FF03DAC5</color> <!-- Contoh untuk tema -->
+    <color name="teal_700">#FF018786</color> <!-- Contoh untuk tema -->
 </resources>

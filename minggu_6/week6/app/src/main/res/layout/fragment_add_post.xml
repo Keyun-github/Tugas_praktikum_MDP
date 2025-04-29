@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/grey_background"
+    tools:context=".AddPostFragment">
+
+    <!-- Tombol Back -->
+    <ImageButton
+        android:id="@+id/buttonBackAddPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_back"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="12dp"
+        app:tint="?attr/colorControlNormal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Back"/>
+
+    <!-- Dropdown/Spinner Komunitas -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldCommunity"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Select community"
+        app:errorEnabled="true"
+        app:layout_constraintTop_toBottomOf="@id/buttonBackAddPost"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Opsi Buat Komunitas Baru -->
+    <TextView
+        android:id="@+id/textViewCreateCommunity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:padding="8dp"
+        android:text="or create a community"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/textFieldCommunity"
+        app:layout_constraintStart_toStartOf="@id/textFieldCommunity"/>
+
+
+    <!-- Input Judul -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldTitle"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Title"
+        app:errorEnabled="true"
+        app:layout_constraintTop_toBottomOf="@id/textViewCreateCommunity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!-- Input Deskripsi -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldDescription"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Description"
+        app:errorEnabled="true"
+        app:layout_constraintTop_toBottomOf="@id/textFieldTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top|start"
+            android:inputType="textMultiLine|textCapSentences"
+            android:minLines="5"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!-- Tombol Post -->
+    <Button
+        android:id="@+id/buttonPost"
+        style="@style/Widget.App.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Post"
+        app:layout_constraintTop_toBottomOf="@id/textFieldDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
